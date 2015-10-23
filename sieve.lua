@@ -1,22 +1,14 @@
 return function (str)
-  --[[
-    Convert the string to a char map
-  ]]--
-  cm = {}
-  i = 1 l = 1 r=0
-  while(i <= str:len()) do
-    s = str:sub(i, i)
-    n = 1
-    cm[l] = {}
-    while(s ~= "\n") do
-      cm[l][n] = s
-      n = n + 1
-      i = i + 1
-      s = str:sub(i, i)
-    end
-    r = math.max(r, n - 1)
-    l = l + 1
-  end
-  for k, v in ipairs(cm) do
-  end
+  local s, m = {}, {}
+  function pop() local r=s[#s] s:remove(#s) return r end
+  function push(v) s[#s+1]=v end
+  
+  local dl, dc = 0, 1
+  function dw() dl=0 dc=-1 end
+  function de() dl=0 dc=1 end
+  function ds() dl=1 dc=0 end
+  function dn() dl=-1 dc=0 end
+  local cl, cc = 1, 1
+  function up() cl=cl+dl cc=cc+dc end
+  
 end
