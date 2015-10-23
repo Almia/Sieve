@@ -18,4 +18,9 @@ return function (str)
   function add() a=pop() or 0 b=pop() or 0 push(a+b) end
   function sub() a=pop() or 0 b=pop() or 0 push(a-b) end
   
+  function hif() if s[cs][#s[cs]]==0 then dw() else de() end end
+  function vif() if s[cs][#s[cs]]==0 then dn() else ds() end end
+  local wl, wc, w = 0, 0, false
+  local el, ec = 0, 0
+  
 end
