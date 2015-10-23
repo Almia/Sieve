@@ -12,7 +12,7 @@ return function (str)
   local cl,cc=1,1
   function up() cl=cl+dl cc=cc+dc end
   local rs,ms=false,""
-  function as(st) if rs then ms=ms..st end
+  function as(st) ms=ms..st end
   function ps() push(ms) end
   
   function add() a=pop() or 0 b=pop() or 0 push(a+b) end
@@ -33,5 +33,29 @@ return function (str)
   end
   
   while(m[cl][cc]=="@")
+    local c=m[cl][cc]
+    if rs then
+      if c=="\"" then ps() rs=false else as(c) end
+    else
+      if c=="+" then add()
+      elseif c=="-" then sub()
+      elseif c=="^" then dn()
+      elseif c=="v" then ds()
+      elseif c==">" then de()
+      elseif c=="<" then dw()
+      elseif c=="\\" then
+        if dl==1 then de()
+        elseif dl==-1 then dw()
+        elseif dc==1 then ds()
+        elseif dc==-1 then dn()
+        end
+      elseif c=="/" then
+        if dl==-1 then de()
+        elseif dl==1 then dw()
+        elseif dc==-1 then ds()
+        elseif dc==1 then dn()
+        end
+      end
+    end
   end
 end
