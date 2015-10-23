@@ -17,7 +17,8 @@ return function (str)
   
   function add() a=pop() or 0 b=pop() or 0 push(a+b) end
   function sub() a=pop() or 0 b=pop() or 0 push(a-b) end
-  
+  function eq() a=pop or 0 b=pop() or 0 if a==b then push(1) else push(0) end end
+  function ge() a=pop or 0 b=pop() or 0 if a>b then push(1) else push(0) end end
   function hif() if s[cs][#s[cs]]==0 then dw() else de() end end
   function vif() if s[cs][#s[cs]]==0 then dn() else ds() end end
   local wl,wc,w=0,0,false
@@ -55,6 +56,15 @@ return function (str)
         elseif dc==-1 then ds()
         elseif dc==1 then dn()
         end
+      elseif c=="[" then wl=cl wc=cc w=true
+      elseif c=="]" then el=cl ec=cc if w then if s[cs][#s[cs]]~=0 then cl=wl cc=wc end end
+      elseif c=="{" then ls()
+      elseif c=="}" then rs()
+      elseif c=="I" then vif()
+      elseif c=="_" then hif()
+      elseif c=="=" then eq()
+      elseif c=="g" then ge()
+      elseif c=="0"
       end
     end
   end
