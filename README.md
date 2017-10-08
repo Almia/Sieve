@@ -2,6 +2,7 @@
 Sieve is a two-dimensional stack-based programming language inspired from the esoteric languages Brainfuck and Befunge.
 
 # Operations:
+```
 <>^< - West, East, North, South direction
 / - east -> north, north -> east, south -> west, west -> south
 \ - east -> south, south -> east, north -> west, west -> north
@@ -22,5 +23,5 @@ _ - horizontal if (if top stack value is 0, go west, else go east)
 } - go to right stack
 g - compare top stack values
 @ - end of program
-
+```
 
